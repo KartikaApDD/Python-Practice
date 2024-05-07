@@ -11,7 +11,7 @@ print("In this quiz you need to guess what my favourite food is")
 answer = input("Do you know what my favourite food is?")
 
 # Check the user's answer and give feedback
-if answer == "sushi":
+if answer == "sUshI".lower():
     print("Yey, you got it right!")
     score+= 20
 elif answer == "":
