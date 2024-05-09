@@ -1,4 +1,5 @@
 score = 0
+QUESTION_FORMAT= "{}\nA.{} B.{} C.{} D.{}"
 # Ask the user their name and save it 
 name = input("What's your name?")
 
@@ -8,16 +9,21 @@ print("I hope you have a nice day today!")
 print("In this quiz you need to guess what my favourite food is")
 
 # Ask the user a question
-answer = input("Do you know what my favourite food is?")
+question = "Do you know what my favourite food is?"
+a = "Chicken"
+b = "Rice"
+c = "Cake"
+d = "Sushi"
+answer = input(QUESTION_FORMAT.format(question, a, b, c, d)).lower()
 
 # Check the user's answer and give feedback
-if answer == "sUshI".lower():
+if answer == d.lower() or answer == "d":
     print("Yey, you got it right!")
     score+= 20
 elif answer == "":
     print("Oh you didn't know that? My favourite food is sushi")
 else:
-    print("You don't get it right. It's sushi")
-    score+= 7
+    print("Yey, you got it right!")
+    score+= 20
 # End the quiz
-print("Well done! You have finished your quiz, you got", score, "points")
+print("Well done {}! You have finished your quiz, you got, {}, points. Let's play again later!".format(name,score))
