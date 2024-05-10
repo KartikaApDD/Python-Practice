@@ -21,9 +21,11 @@ if answer == d.lower() or answer == "d":
     print("Yey, you got it right!")
     score+= 20
 elif answer == "":
-    print("Oh you didn't know that? My favourite food is sushi")
+    print("Oh, you didn't answer anything")
+elif answer != c.lower() and answer != "c" and answer != a.lower() and answer != "a" and asnwer != b.lower() and answer != "b":
+    print("Ops! That's not the option")
 else:
-    print("Yey, you got it right!")
-    score+= 20
+    print("Sadly, wrong!")
+    print("The answer is sushi")
 # End the quiz
 print("Well done {}! You have finished your quiz, you got, {}, points. Let's play again later!".format(name,score))
