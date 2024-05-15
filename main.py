@@ -9,7 +9,7 @@ try:
 except:
     print("That's not a number")
 
-# Greet the user and introduce the quiz
+# Greet the user and introduce the quiz 
 print("Welcome to the quiz, Gles")
 print("I hope you have a nice day today!")
 print("In this quiz you need to guess what my favourite food is")
