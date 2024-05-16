@@ -44,7 +44,7 @@ while play == "yes":
         print("Wrong!")
 
         question_attempts -= 1
-        print("Quite right but the correct answer is Sushi!")
+    print("Quite right but the correct answer is Sushi!")
     
     # End the quiz
     print("Well done {}! You have finished your quiz, you got, {}, points. Let's play again later!".format(name,score))
