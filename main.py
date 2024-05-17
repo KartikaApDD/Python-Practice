@@ -1,3 +1,6 @@
+import random
+GOOD_COMMENTS = ["Great!", "Amazing!", "Fantastic!"]
+BAD_COMMENTS = ["Trying better!", "You can do that!", "Don't give up, just try!"] 
 score = 0
 play = "yes"
 
@@ -14,7 +17,7 @@ while True:
     try:
         tries = input("How many attempts do you want at each question? 1-4")
         tries = int(tries)
-        break
+        break  
     except:
         print("That's not a number")
 
@@ -31,20 +34,22 @@ while play == "yes":
         d = "Sushi"
         answer = input("{}\nA.{} B.{} C.{} D.{}".format(question, a, b, c, d)).lower()
 
-    # Check the user's answer and give feedback
-    if answer == d.lower() or answer == "d":
-        print("Yey, you got it right!")
-        score+= 20
-        break
-    elif answer == "":
-        print("Oh, you didn't answer anything")
-    elif answer != c.lower() and answer != "c" and answer != a.lower() and answer != "a" and answer != b.lower() and answer != "b":
-        print("Ops! That's not the option")
-    else:
-        print("Wrong!")
+        # Check the user's answer and give feedback
+        if answer == d.lower() or answer == "d":
+            print("Yey, you got it right!")
+            score+= 20
+            print(random.choice(GOOD_COMMENTS))
+            break
+        elif answer == "":
+            print("Oh, you didn't answer anything")
+        elif answer != c.lower() and answer != "c" and answer != a.lower() and answer != "a" and answer != b.lower() and answer != "b":
+            print("Ops! That's not the option")
+        else:
+            print("Wrong!")
+            print(random.choice(BAD_COMMENTS))
 
-        question_attempts -= 1
-    print("Quite right but the correct answer is Sushi!")
+            question_attempts -= 1
+            print("Quite right but the correct answer is Sushi!")
     
     # End the quiz
     print("Well done {}! You have finished your quiz, you got, {}, points. Let's play again later!".format(name,score))
