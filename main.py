@@ -1,7 +1,13 @@
 import random
+
+QUESTION_FORMAT = "{}\nA.{} B.{} C.{} D.{}"
 GOOD_COMMENTS = ["Great!", "Amazing!", "Fantastic!"]
 BAD_COMMENTS = ["Trying better!", "You can do that!", "Don't give up, just try!"] 
-score = 0
+QUESTIONS = ["Do you know what my favourite food is?"]
+OPTIONS = [["Chicken", "Rice", "Cake", "Sushi"]]
+SHORT_OPTIONS = ["a", "b", "c", "d"]
+ANSWERS = [3]
+
 play = "yes"
 
 # Ask the user their name and save it 
@@ -23,33 +29,33 @@ while True:
 
 # Repeat quiz
 while play == "yes":
+    score = 0
+    
+    #loop each question/answer
+    for i in range(len(QUESTIONS)):
+        question_attempts = tries
+        while question_attempts > 0:
+            # Ask the user a question
+            answer = input (QUESTION_FORMAT.format(QUESTIONS[i], OPTIONS[i][0],
+                                                OPTIONS[i][1], OPTIONS[i][2], OPTIONS[i][3])).lower()
+            
+            # Check the user's answer and give feedback
+            if answer == OPTIONS[i][ANSWERS[i]] or answer == SHORT_OPTIONS[ANSWER[i]]:
+                print("Yey, you got it right!")
+                score+= 20
+                print(random.choice(GOOD_COMMENTS))
+                break
+            elif answer == "":
+                print("Oh, you didn't answer anything")
+            elif answer in SHORT_OPTIONS or answer in OPTIONS[i]:
+                print("Wrong!")
+                print(random.choice(BAD_COMMENTS))
+            else:
+                print("Ops! That's not the option")
 
-    question_attempts = tries
-    while question_attempts > 0:
-    # Ask the user a question
-        question = "Do you know what my favourite food is?"
-        a = "Chicken"
-        b = "Rice"
-        c = "Cake"
-        d = "Sushi"
-        answer = input("{}\nA.{} B.{} C.{} D.{}".format(question, a, b, c, d)).lower()
-
-        # Check the user's answer and give feedback
-        if answer == d.lower() or answer == "d":
-            print("Yey, you got it right!")
-            score+= 20
-            print(random.choice(GOOD_COMMENTS))
-            break
-        elif answer == "":
-            print("Oh, you didn't answer anything")
-        elif answer != c.lower() and answer != "c" and answer != a.lower() and answer != "a" and answer != b.lower() and answer != "b":
-            print("Ops! That's not the option")
-        else:
-            print("Wrong!")
-            print(random.choice(BAD_COMMENTS))
 
             question_attempts -= 1
-            print("Quite right but the correct answer is Sushi!")
+        print("The answer is sushi")
     
     # End the quiz
     print("Well done {}! You have finished your quiz, you got, {}, points. Let's play again later!".format(name,score))
