@@ -35,18 +35,23 @@ def isCorrect(answer, list):
 
 intro()
 lives = getLives()
-
 score = 0
+
 while lives > 0:
     answer = input("Name one of the top best selling music artist all the time:\n").lower()
 
     if inList(answer, BEST_SELLING_MUSIC_ARTISTS_ANSWERS):
         if inList(answer, guesses):
             print("You've guessed that alreasy")
+        else:
+            print("Correct")
+            score += 5
+            guesses.append(answer)
+            print("You have guessed {}. Your score is {}. You have {} chances remaining".format(len(guesses), score))
     else:
-        print("Correct")
-        score += 5
+        print("Wrong")
+        score -= 1
         guesses.append(answer)
-        print("You have guessed {}. Your score is")
+        print("You have guessed {}. Your score is {}. You have {} chances remaining".format(len(guesses), score))
 
 print("Game over. Your final score was {}".format(score))
