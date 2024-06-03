@@ -25,7 +25,7 @@ def getLives():
         except: 
                 print("That wasn't a number")
 
-def isCorrect(answer, list): 
+def inList(answer, list): 
     if answer in list:
         return True
     else:

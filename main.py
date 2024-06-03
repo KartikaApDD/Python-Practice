@@ -40,7 +40,7 @@ while play == "yes":
                                                 OPTIONS[i][1], OPTIONS[i][2], OPTIONS[i][3])).lower()
             
             # Check the user's answer and give feedback
-            if answer == OPTIONS[i][ANSWERS[i]] or answer == SHORT_OPTIONS[ANSWER[i]]:
+            if answer == OPTIONS[i][ANSWERS[i]] or answer == SHORT_OPTIONS[ANSWERS[i]]:
                 print("Yey, you got it right!")
                 score+= 20
                 print(random.choice(GOOD_COMMENTS))
